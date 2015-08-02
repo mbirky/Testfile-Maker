@@ -1,11 +1,13 @@
+##Testfile Maker
+
 Welcome, this is a tool for making test files.  They will be filled with the numbers 0-9 repeating.
 
-To Run:
+###To Run:
 	make
 	./testfile_maker [options]
 
-Options:
-	[file name] [-c val] [-e [extension name]] [-h] [-l] [-s val[k|m|g]]
+###Options:
+#####	[file name] [-c val] [-e [extension name]] [-h] [-l] [-s val[k|m|g]]
 
 	filename:	Default: test
 
