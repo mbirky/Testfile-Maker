@@ -68,7 +68,7 @@ echo Help
 
 printf "./testfile_maker -h: "
 output="$(eval ./testfile_maker -h | cut -c16- | sed -e 's/\[/\\\[/g' -e 's/]/\\]/g')"
-readme="$(sed -n -e '/\[file name]/p' README | cut -c2- | sed -e 's/\[/\\\[/g' -e 's/]/\\]/g')"
+readme="$(sed -n -e '/\[file name]/p' README.md | cut -c7- | sed -e 's/\[/\\\[/g' -e 's/]/\\]/g')"
 
 stringEqual=
 if [ "$output" = "$readme" ]
