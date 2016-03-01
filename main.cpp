@@ -81,8 +81,12 @@ int main(int argc, const char * argv[]) {
 	unsigned int fileCount	= 1;
 	unsigned long long fileSize	= 10;	//bytes
 	const char * fileName	= "test";
-	bool seperate_lines		= false;
 	string fileExtension;
+
+	int const fillArraySize = 20;
+	char nolineFillArray[fillArraySize] = {'0','1','2','3','4','5','6','7','8','9','0','1','2','3','4','5','6','7','8','9'};
+	char lineFillarray[fillArraySize] = {'0','\n','1','\n','2','\n','3','\n','4','\n','5','\n','6','\n','7','\n','8','\n','9','\n'};
+	char * fillArray = nolineFillArray;
 
 	gProgname = GetProgname(*argv);
 
@@ -114,7 +118,7 @@ int main(int argc, const char * argv[]) {
 					help();
 					break;
 				case 'l':
-					seperate_lines=true;
+					fillArray = lineFillarray;
 					break;
 				case 's':
 					if( (argc > 1) && isdigit(*argv[1]) )	{
@@ -167,6 +171,14 @@ int main(int argc, const char * argv[]) {
 		}
 	}
 
+	// Making an output array of 50 times the fill array size
+	// This array is then used to reduce the number of write calls needed
+	int const outputArraySize = fillArraySize * 50;
+	char outputArray[outputArraySize] = {0};
+	for(int numMemCpys(0); numMemCpys < (outputArraySize / fillArraySize); ++numMemCpys) {
+		memcpy(outputArray + (numMemCpys * fillArraySize), fillArray, fillArraySize);
+	}
+
 	// Create number of files as called for
 	for(int fileNum(0); fileNum < fileCount; fileNum++) {
 		stringstream outputFileName;
@@ -188,14 +200,12 @@ int main(int argc, const char * argv[]) {
 
 		std::ofstream outputfile;
 		outputfile.open(outputFileName.str().c_str());
-		unsigned int output_char=0;
-		for(unsigned int size(0); size < fileSize; ++size)	{
-			outputfile << output_char++ % 10;
-			if( seperate_lines && size + 1 < fileSize)	{
-				outputfile << '\n';
-				++size;
-			}
+		unsigned int outputSize=fileSize;
+		while(outputSize > outputArraySize) {
+			outputSize -= outputArraySize;
+			outputfile.write(outputArray, outputArraySize);
 		}
+		outputfile.write(outputArray, outputSize);
 		outputfile.close();
 	}
 
