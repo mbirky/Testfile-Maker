@@ -25,4 +25,5 @@ rm -f $fileName
 
 print_pass_fail_stats
 
-return exit_status
+exit_status
+return $?
