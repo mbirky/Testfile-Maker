@@ -1,0 +1,7 @@
+language: Cpp
+
+compiler: gcc
+
+script: cd test_scripts && ./sanity.sh
+script: cd test_scripts && ./size.sh
+
