@@ -24,3 +24,5 @@ pass_fail "$($stat_size $fileName) -eq $(($fileSize * 1024 * 1024 * 1024))"
 rm -f $fileName
 
 print_pass_fail_stats
+
+return exit_status
