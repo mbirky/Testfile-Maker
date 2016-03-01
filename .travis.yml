@@ -2,5 +2,6 @@ language: Cpp
 
 compiler: gcc
 
+# The sanity and size scripts build as part of running
 script: cd test_scripts && ./sanity.sh && ./size.sh
 
