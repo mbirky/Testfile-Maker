@@ -23,7 +23,9 @@ echo_and_run "./testfile_maker -s $(($fileSize))g"
 pass_fail "$($stat_size $fileName) -eq $(($fileSize * 1024 * 1024 * 1024))"
 rm -f $fileName
 
-print_pass_fail_stats
+fileSize=4
+echo_and_run "./testfile_maker -s $(($fileSize))g"
+pass_fail "$($stat_size $fileName) -eq $(($fileSize * 1024 * 1024 * 1024))"
+rm -f $fileName
 
-exit_status
-return $?
+print_pass_fail_stats

@@ -66,12 +66,3 @@ print_pass_fail_stats() {
 	fi
 	echo "/$(expr $g_pass_counter + $g_fail_counter)"
 }
-
-exit_status() {
-	if [ $g_fail_counter -gt 0 ]
-	then
-		return 1
-	fi
-
-	return 0
-}

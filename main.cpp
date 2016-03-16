@@ -200,7 +200,7 @@ int main(int argc, const char * argv[]) {
 
 		std::ofstream outputfile;
 		outputfile.open(outputFileName.str().c_str());
-		unsigned int outputSize=fileSize;
+		unsigned long long outputSize=fileSize;
 		while(outputSize > outputArraySize) {
 			outputSize -= outputArraySize;
 			outputfile.write(outputArray, outputArraySize);

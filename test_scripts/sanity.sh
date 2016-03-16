@@ -127,6 +127,3 @@ pass_fail "$($stat_size $fileName) -eq $fileSize"
 rm -f $fileName
 
 print_pass_fail_stats
-
-exit_status
-exit $?
