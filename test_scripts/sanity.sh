@@ -26,8 +26,7 @@ echo Name Tests
 fileName=testfilename
 echo_and_run "./testfile_maker $fileName"
 pass_fail "-e $fileName0"
-rm -f "$fileName"0	# The '0' must be outside of the quotes otherwise it looks
-					# for the variable named "filename0"
+rm -f "$fileName"
 
 
 

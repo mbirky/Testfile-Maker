@@ -48,7 +48,7 @@ GetProgname(const char *argp)
  */
 void usage()
 {
-	cout << gProgname << " [file name] [-c val] [-e [extension name]] [-h] [-l] [-s val[k|m|g]]" << endl;
+	cout << gProgname << " [file name] [-c val] [-d dir] [-e [extension name]] [-h] [-l] [-s val[k|m|g]]" << endl;
 }
 
 /*
@@ -77,10 +77,24 @@ void help(const char *cp)
 	exit(1);
 }
 
+void SanatizeFileDirectory(string & fileDirectory)
+{
+    // There may be an issues if the string is less than 3 characters
+    if(fileDirectory.compare(fileDirectory.length() -3, 3, "...") == 0) {
+        fileDirectory.erase(fileDirectory.end() -3, fileDirectory.end());
+    } 
+
+    // The file directory must end with a / or it will be part of the name
+    if(fileDirectory.compare(fileDirectory.length() -1, 1, "/")) {
+        fileDirectory.push_back('/');
+    }
+}
+
 int main(int argc, const char * argv[]) {
 	unsigned int fileCount	= 1;
 	unsigned long long fileSize	= 10;	//bytes
 	const char * fileName	= "test";
+    string fileDirectory;
 	string fileExtension;
 
 	int const fillArraySize = 20;
@@ -105,6 +119,13 @@ int main(int argc, const char * argv[]) {
 						help("-c requires a number");
 					}
 					break;
+                case 'd':
+                    if(argc > 1)    {
+                        argc--;
+                        fileDirectory = *++argv;
+                        SanatizeFileDirectory(fileDirectory);
+                    }
+                    break;
 				case 'e':
 					if(argc > 1)	{
 						argc--;
@@ -182,7 +203,7 @@ int main(int argc, const char * argv[]) {
 	// Create number of files as called for
 	for(int fileNum(0); fileNum < fileCount; fileNum++) {
 		stringstream outputFileName;
-		outputFileName << fileName;
+		outputFileName << fileDirectory <<  fileName;
 
 		if(fileCount != 1) {
 			outputFileName << fileNum;
