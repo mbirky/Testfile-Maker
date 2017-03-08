@@ -14,6 +14,9 @@ Welcome, this is a tool for making test files.  They will be filled with the num
 	-c		The count of the files to be created.
 			Default: 1
 
+    -d      The directory where the files should be created.
+            Default: Current working directory
+
 	-e		The extension of the files that will be created.
 			Default: No extension
 
