@@ -26,3 +26,8 @@ Welcome, this is a tool for making test files.  They will be filled with the num
 	-s		The size of each file measured in bytes. Adding a trailing 'k', 'm', or 'g'
 			will convert the value into kilobytes, megabytes, or gigabytes respectively.
 			Default: 10
+
+    -v      Turns on output for completion of different tasks.
+            Level 1 - The following text is output when all files have been made, "Complete: <file count> files made"
+            Level 2 - The completion message is output along with the following for each file created, "Made: <file name>"
+            Default: No Output
