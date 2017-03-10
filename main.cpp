@@ -48,7 +48,7 @@ GetProgname(const char *argp)
  */
 void usage()
 {
-	cout << gProgname << " [file name] [-c val] [-d dir] [-e [extension name]] [-h] [-l] [-s val[k|m|g]]" << endl;
+	cout << gProgname << " [file name] [-c val] [-d dir] [-e [extension name]] [-h] [-l] [-s val[k|m|g]] [-v [val]]" << endl;
 }
 
 /*
@@ -91,6 +91,7 @@ void SanatizeFileDirectory(string & fileDirectory)
 }
 
 int main(int argc, const char * argv[]) {
+    int verbose = 0;
 	unsigned int fileCount	= 1;
 	unsigned long long fileSize	= 10;	//bytes
 	const char * fileName	= "test";
@@ -181,6 +182,20 @@ int main(int argc, const char * argv[]) {
 						help("-s requires a number");
 					}
 					break;
+                case 'v':
+                    if(argc >1) {
+                        if(isdigit(*argv[1])) {
+                            argc--;
+                            verbose = ValOf<int>(*++argv);
+                        }
+                        else {
+                            help("-v requires a number");
+                        }
+                    }
+                    else {
+                        verbose = 1;
+                    }
+                    break;
 				default:
 					help(*arg);
 					break;
@@ -228,7 +243,15 @@ int main(int argc, const char * argv[]) {
 		}
 		outputfile.write(outputArray, outputSize);
 		outputfile.close();
+
+        if(verbose > 1) {
+            cout << "Made: " << outputFileName.str() << endl;
+        }
 	}
+
+    if(verbose > 0) {
+        cout << "Complete: " << fileCount << " files made" << endl;
+    }
 
 	return 0;
 }
