@@ -11,13 +11,13 @@ Welcome, this is a tool for making test files.  They will be filled with the num
 
 	filename:	Default: test
 
-	-c		The count of the files to be created.
+	-c		The count of the files to be made.
 			Default: 1
 
-    -d      The directory where the files should be created.
+    -d      The directory where the files should be made.
             Default: Current working directory
 
-	-e		The extension of the files that will be created.
+	-e		The extension of the files that will be made.
 			Default: No extension
 
 	-l		Writes each character out to a new line.  To maintain size only half the
@@ -29,5 +29,5 @@ Welcome, this is a tool for making test files.  They will be filled with the num
 
     -v      Turns on output for completion of different tasks.
             Level 1 - The following text is output when all files have been made, "Complete: <file count> files made"
-            Level 2 - The completion message is output along with the following for each file created, "Made: <file name>"
+            Level 2 - The completion message is output along with the following for each file made, "Made: <file name>"
             Default: No Output
