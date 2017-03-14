@@ -15,7 +15,7 @@ This tool was developed to help with software testing. There were two original r
 	-c		The count of the files to be made.
 			Default: 1
 
-    -d      The directory where the files should be made.
+    -d		The directory where the files should be made.
             Default: Current working directory
 
 	-e		The extension of the files that will be made.
@@ -28,7 +28,7 @@ This tool was developed to help with software testing. There were two original r
 			will convert the value into kilobytes, megabytes, or gigabytes respectively.
 			Default: 10
 
-    -v      Turns on output for completion of different tasks.
+    -v		Turns on output for completion of different tasks.
             Level 1 - The following text is output when all files have been made, "Complete: <file count> files made"
             Level 2 - The completion message is output along with the following for each file made, "Made: <file name>"
             Default: No Output
