@@ -1,13 +1,14 @@
-##Testfile Maker
+## Testfile Maker
 
-Welcome, this is a tool for making test files.  They will be filled with the numbers 0-9 repeating.
+### About
+    This tool was developed to help with software testing. There were two original requirements, the first was to quickly generate ten thousand plus files and the second was to generate a file of one gigabyte in size. How to Break Software by James A. Whittaker inspired the zero to nine repeating pattern so that any changes made to a file are easily recognizable.
 
-###To Run:
+### To Run:
 	make
 	./testfile_maker [options]
 
-###Options:
-#####	[file name] [-c val] [-d dir] [-e [extension name]] [-h] [-l] [-s val[k|m|g]] [-v [val]]
+### Options:
+##### [file name] [-c val] [-d dir] [-e [extension name]] [-h] [-l] [-s val[k|m|g]] [-v [val]]
 
 	filename:	Default: test
 
