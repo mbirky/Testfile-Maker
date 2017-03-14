@@ -16,7 +16,7 @@ This tool was developed to help with software testing. There were two original r
 			Default: 1
 
     -d		The directory where the files should be made.
-            Default: Current working directory
+			Default: Current working directory
 
 	-e		The extension of the files that will be made.
 			Default: No extension
@@ -29,6 +29,6 @@ This tool was developed to help with software testing. There were two original r
 			Default: 10
 
     -v		Turns on output for completion of different tasks.
-            Level 1 - The following text is output when all files have been made, "Complete: <file count> files made"
-            Level 2 - The completion message is output along with the following for each file made, "Made: <file name>"
-            Default: No Output
+			Level 1 - The following text is output when all files have been made, "Complete: <file count> files made"
+			Level 2 - The completion message is output along with the following for each file made, "Made: <file name>"
+			Default: No Output
