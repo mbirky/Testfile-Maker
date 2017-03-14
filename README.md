@@ -1,7 +1,7 @@
 ## Testfile Maker
 
 ### About
-    This tool was developed to help with software testing. There were two original requirements, the first was to quickly generate ten thousand plus files and the second was to generate a file of one gigabyte in size. How to Break Software by James A. Whittaker inspired the zero to nine repeating pattern so that any changes made to a file are easily recognizable.
+This tool was developed to help with software testing. There were two original requirements, the first was to quickly generate ten thousand plus files and the second was to generate a file of one gigabyte in size. How to Break Software by James A. Whittaker inspired the zero to nine repeating pattern so that any changes made to a file are easily recognizable.
 
 ### To Run:
 	make
